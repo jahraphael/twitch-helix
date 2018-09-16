@@ -69,7 +69,7 @@ module.exports = class TwitchHelix extends EventEmitter {
     }
 
     shouldRetryRequest = (error, response, body) => {
-        if (response.headers) {
+        if (response && response.headers) {
             this.rateLimit = {
                 limit: response.headers["ratelimit-limit"],
                 remaining: response.headers["ratelimit-remaining"],
